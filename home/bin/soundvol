@@ -1,0 +1,9 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+# Sets the volume
+ if [ -z "$1" ]
+ 	then
+		echo "sets the sound volume. Example usage: vol 20"
+		exit 1
+fi
+amixer -c 0 sset Master,0 $@%

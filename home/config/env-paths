@@ -1,0 +1,30 @@
+# vi:syntax=sh
+
+export GEM_HOME="$HOME/gems"
+export GEM_PATH="$HOME/gems:/usr/lib/ruby/gems/1.8/"
+export NPM_PACKAGES="$HOME/.npm-packages"
+for dir in \
+	$HOME/bin \
+	$HOME/.local/bin \
+	$HOME/.bin \
+	$HOME/.opt \
+	$HOME/.composer/vendor/bin \
+	$HOME/.meteor \
+    	$NPM_PACKAGES/bin \
+; do
+  if [[ -d $dir ]]; then path+=$dir; fi
+done
+
+export CLASSPATH=".:~/.opt/antlr-4.4-complete.jar:$CLASSPATH"
+
+unset MANPATH
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+export HAXE_STD_PATH=/opt/haxe/std
+export WINEARCH=win32
+export WINEPREFIX=$HOME/.wine32
+
+
+if [ -f $HOME/.config/env-paths.local ]; then
+    source $HOME/.config/env-paths.local
+fi

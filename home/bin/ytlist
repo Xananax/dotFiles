@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# vi:syntax=sh
+
+trap "exit" INT
+list="${@:-list}"
+doneFile="$PWD/$list.done.txt"
+failedFile="$PWD/$list.failed.txt"
+touch "$doneFile"
+touch "$failedFile"
+
+function readLine(){
+	list="$@"
+	url=$(head -n 1 $list)
+	if [[ -z "${url// }" ]]; then
+		echo "line empty, trying next line"
+		return 1
+	fi;
+	echo "--- downloading $url"
+	if youtube-dl --no-mtime $url; then
+		echo "success"
+		echo "$url" >> "$doneFile"
+	else
+		echo "failure"
+		echo "$url" >> "$failedFile"
+	fi;
+	tail -n +2 "$list" > "$list.tmp" && mv "$list.tmp" "$list"
+	readFile "$list"
+}
+
+function readFile(){
+
+	list="$@"
+	if [ -s "$list" ]; then
+		readLine "$list"
+	else
+		echo "file empty"
+	fi
+}
+
+readFile "$list"

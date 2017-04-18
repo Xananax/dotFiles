@@ -1,0 +1,68 @@
+# vi:syntax=sh
+alias e=echo
+alias xclip='xclip -selection c'
+
+# Set less options
+if [[ -x $(which less) ]]
+then
+    export PAGER='less'
+    export LESS='--ignore-case --LONG-PROMPT --QUIET --chop-long-lines -Sm --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
+    export LESSHISTFILE='-'
+    if [[ -x $(which lesspipe.sh) ]];then
+		LESSOPEN='| lesspipe.sh %s'
+		export LESSOPEN
+    fi
+fi
+
+alias j='jobs -l'
+alias grep='grep --colour'
+alias mutt='TERM=xterm-256color mutt'
+alias grep='/usr/bin/grep $GREP_OPTIONS'
+unset GREP_OPTIONS
+alias sudo='sudo'
+alias cp='cp -i'                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias rofirun='rofi -show drun -modi window,drun,run,calc:$HOME/.local/rofi/calc.sh'
+
+
+if hash notify-send 2>/dev/null;then
+	alias say='notify-send'
+fi
+
+if hash shalarm 2>/dev/null; then
+	alias alarm='shalarm --snooze 300'
+fi
+
+if hash youtube-dl 2>/dev/null; then
+	alias yt='youtube-dl'
+	alias yta='youtube-dl -i -a'
+fi
+
+if hash tmux 2>/dev/null; then
+	alias tmux='tmux -2'
+fi
+
+if hash docker 2>/dev/null; then
+	alias docker-show-containers='docker stop $(docker ps -a -q)'
+	alias docker-remove-containers='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+fi
+
+# only for Arch distributions
+if [[ -f "/etc/arch-release" || -f "/etc/manjaro-release" ]]; then
+	# check mirrors and write them
+	alias mirrors='sudo reflector --verbose -l 15 -p http --sort rate --save /etc/pacman.d/mirrorlist'
+	# show orphans explicitely installed packages:
+	alias pacman-show-removable='pacman -Qmte'
+	# '[r]emove [o]rphans' - recursively remove ALL orphaned packages
+	alias pacman-remove-orphans='/usr/bin/pacman -Qtdq > /dev/null && sudo /usr/bin/pacman -Rns \$(/usr/bin/pacman -Qtdq | sed -e ":a;N;\$!ba;s/\n/ /g")'
+	# Remove the specified package(s), its configuration(s) and unneeded dependencie
+	alias pacman-remove='sudo pacman -Rns'
+	# Clean cache - delete all the package files in the cache
+	alias pacman-clean='sudo pacman -Scc'
+    alias pac='sudo pacsrv -Syu'
+fi
+
+if [ -f $HOME/.config/env-aliases.local ]; then
+    source $HOME/.config/env-aliases.local
+fi

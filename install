@@ -1,0 +1,15 @@
+ln -s -r ./home/config/i3 ~/.config/i3
+ln -s -r ./home/config/i3blocks ~/.config/i3blocks
+ln -s -r ./home/config/yabar ~/.config/yabar
+ln -s -r ./home/config/rofi ~/.config/rofi
+ln -s -r ./home/config/dunst ~/.config/dunst
+ln -s -r ./home/config/compton.conf ~/.config/compton.conf
+ln -s -r ./home/tmux.conf ~/.tmux.conf
+ln -s -r ./home/config/env-paths ~/.config/env-paths
+ln -s -r ./home/config/env-aliases ~/.config/env-aliases
+ln -s -r ./home/config/env-exports ~/.config/env-exports
+ln -s -r ./home/config/env-functions ~/.config/env-functions
+ln -s -r ./home/config/bash_functions ~/.config/bash_functions
+ln -s -r ./home/npmrc ~/.npmrc
+ln -s -r ./home/zshrc ~/.zshrc
+ln -s -r ./home/bin ~/.bin

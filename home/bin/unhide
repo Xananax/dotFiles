@@ -1,0 +1,8 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+
+for FILE in "$@"; do
+	FILENAME="${FILE##*/}"
+	DIRECTORY=$(dirname "${FILE}")
+	sed "/$FILENAME/d" "$DIRECTORY"/.hidden > "$DIRECTORY"/tempFile && mv "$DIRECTORY"/tempFile "$DIRECTORY"/.hidden
+done;

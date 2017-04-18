@@ -1,0 +1,13 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+
+shopt -s nullglob
+for z in *.{zip,rar};
+do
+	basename=$(basename "$z")
+	ext="${dir##*.}"
+	case $ext in
+		zip) mv "$z" "$basename.cbz";;
+		rar) mv "$z" "$basename.cbr";;
+	esac
+done;

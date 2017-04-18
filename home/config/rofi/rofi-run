@@ -1,0 +1,1 @@
+rofi -show drun -modi window,drun,run,calc:~/.config/rofi/calc

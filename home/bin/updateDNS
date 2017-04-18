@@ -1,0 +1,8 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+echo "nameserver 8.8.8.8" > /tmp/resolv.conf.google
+echo "nameserver 8.8.4.4" >> /tmp/resolv.conf.google
+cat /etc/resolv.conf > /tmp/resolv.conf.back
+wget --inet4-only "opennicproject.org/geoip/geotxt4.php" -O /tmp/resolv.conf.new
+cat /tmp/resolv.conf.google >> /tmp/resolv.conf.new
+cat /tmp/resolv.conf.new | sudo tee /etc/resolv.conf

@@ -1,0 +1,415 @@
+########################################
+########         MAIN KEYS      ########
+########################################
+#Main control Key
+set $mod Mod4
+#Control Key for alternate behaviour
+set $modifier Shift
+#Control Key for moving around
+set $altModifier Control
+#Control Key for reverse-resizing
+set $resizeModifier Shift
+#Control Key for I3-related stuff (reloading/restarting...)
+set $i3Modifier Control
+
+########################################
+########         NAVIGATION     ########
+########################################
+# nmode: focus different windows
+# nmode+$modifier: move windows
+# rMode: resize windows.
+# rMode+$resizeModifier: resize in inverse direction
+set $focusLeft h
+set $focusDown j
+set $focusRight l
+set $focusUp k
+set $focusNext n
+set $focusPrevious m
+set $focusUrgent grave
+# these move between workspaces
+set $movePrevious Left
+set $moveNext Right
+set $scratchpad z
+set $sticky a
+
+########################################
+########      MEDIA KEYS        ########
+########################################
+
+# find keys with `xmodmap -pke | grep Audio` or `xev`
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+1 i3blocks #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+1 i3blocks #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp   exec light -A 10 && pkill -RTMIN+2 i3blocks # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 10 && pkill -RTMIN+2 i3blocks # decrease screen brightness
+
+# Touchpad controls
+#bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+########################################
+########      VIEWS             ########
+########################################
+# The following create a new container
+set $splitH backslash
+set $splitV minus
+set $splitToggle w
+# The following set a new view type for the
+# selected container
+set $setFullScreen Shift+F11
+set $setDefault e
+set $setStacking r
+set $setTabbed t
+# this sets the window to float
+# +$modifier: toggle between floating
+# windows and normal windows
+set $toggleFloat space
+
+#borders
+set $borderNone u
+set $borderPixel i
+set $borderNormal o
+
+########################################
+########      CONTROL           ########
+########################################
+set $killKey Shift+q
+set $resizeKey Shift+r
+set $forceKillKey x
+
+########################################
+########      APPS KEYS         ########
+########################################
+set $consoleKey Return
+set $fileManagerKey f
+set $fileLauncherKey d
+set $launcherKey q
+
+
+########################################
+########      I3 CONTROL        ########
+########################################
+set $i3Reload c
+set $i3Restart r
+set $i3Exit e
+
+
+########################################
+########   OTHER SETTINGS      ########
+########################################
+
+# Set if focus follows the mouse pointer
+focus_follows_mouse yes
+# Set if application that pop up during
+# fullscreen steal focus or not
+popup_during_fullscreen leave_fullscreen
+#popup_during_fullscreen <ignore|leave_fullscreen>
+# Force xinerama if X isn't taking care of it
+force_xinerama no
+# Wrap in the same container instead of
+# switching to the next closest container
+# if set to no
+force_focus_wrapping yes
+# Allows to switch back to the last
+# workspace by pressing the number again
+workspace_auto_back_and_forth yes
+# default orientation for new workspaces
+# default_orientation <horizontal|vertical|auto>
+default_orientation auto
+# default view for new workspaces
+# workspace_layout <default|stacking|tabbed>
+workspace_layout default
+
+########################################
+########      BAR               ########
+########################################
+set $barPosition top
+set $barConfigFile ~/.i3/status.conf
+set $barMode dock
+#set $barMode dock | hide
+
+########################################
+########      AUTOSTART         ########
+########################################
+
+# restore wallpaper (must've been set through `feh --bg-fill /path/to/image.file`)
+exec_always --no-startup-id sh $HOME/.fehbg &
+# compositing manager
+exec --no-startup-id compton -b --no-fading-openclose
+# notification manager
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc &
+# wrap pointer at screen edges
+exec --no-startup-id xedgewarp -b
+# network manager
+exec --no-startup-id nm-applet
+# bluetooth manager
+# exec --no-startup-id blueman-applet &
+# gnome settings
+#exec gnome-settings-daemon
+# clipboard manager
+exec --no-startup-id xfce4-clipman
+# launcher
+exec --no-startup-id cerebro
+
+#horizontal scroll touchpad
+#xinput --set-prop 12 "Synaptics Two-Finger Scrolling" 1 1
+
+exec --no-startup-id thunar --daemon
+
+# apps
+# exec dropbox start
+#exec pamac-tray
+
+
+########################################
+########      STYLES            ########
+########################################
+#Colors
+# class                 border  backgr. text
+set $color_focused_border #4c7899
+set $color_focused_background #285577
+set $color_focused_text #fdfdfd
+set $color_unfocused_border #333333
+set $color_unfocused_background #222222
+set $color_unfocused_text #888888
+set $color_urgent_border #2f343a
+set $color_urgent_background #900000
+set $color_urgent_text #ffffff
+set $color_topBar_background #000000
+set $color_topBar_text #ffffff
+set $color_launcher_background #000000
+set $color_launcher_text #ffffff
+
+# font for window titles. ISO 10646 = Unicode
+#set $mainFont font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+# font for bar
+set $barFont pango:Hack, FontAwesome 16
+
+# set the main font
+set $mainFont $barFont
+
+font $barFont
+
+########################################
+########     DONT TOUCH BELOW   ########
+########################################
+
+bindsym Print exec xfce4-screenshooter
+bindsym $mod+p exec /home/xananax/.bin/printscrn
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Apps
+bindsym $mod+$consoleKey exec i3-sensible-terminal
+bindsym $mod+$fileManagerKey exec thunar
+bindsym $mod+$killKey kill
+bindsym $mod+$forceKillKey exec xkill
+bindsym $mod+$fileLauncherKey exec i3-dmenu-desktop
+# bindsym $mod+$launcherKey exec ~/.config/rofi/rofi-run 
+# change focus
+bindsym $mod+$focusLeft focus left
+bindsym $mod+$focusDown focus down
+bindsym $mod+$focusUp focus up
+bindsym $mod+$focusRight focus right
+bindsym $mod+Tab focus right
+bindsym $mod+$modifier+Tab focus left
+bindsym $mod+$focusNext focus right
+bindsym $mod+$focusPrevious focus Left
+bindsym $mod+$modifier+$focusNext focus down
+bindsym $mod+$modifier+$focusPrevious focus up
+bindsym $mod+$focusUrgent [urgent=latest] focus
+# hide/show window
+bindsym $mod+Shift+$scratchpad move scratchpad
+bindsym $mod+$scratchpad scratchpad show
+bindsym $mod+$sticky sticky toggle
+# move focused window
+bindsym $mod+Shift+$focusLeft move left
+bindsym $mod+Shift+$focusDown move down
+bindsym $mod+Shift+$focusUp move up
+bindsym $mod+Shift+$focusRight move right
+# split in horizontal orientation
+bindsym $mod+$splitH split h
+# split in vertical orientation
+bindsym $mod+$splitV split v
+bindsym $mod+$splitToggle layout toggle split
+# enter fullscreen mode for the focused container
+bindsym $mod+$setFullScreen fullscreen
+# change container layout (stacked, tabbed, default)
+bindsym $mod+$setStacking layout stacking
+bindsym $mod+$setTabbed layout tabbed
+bindsym $mod+$setDefault layout default
+# toggle tiling / floating
+bindsym $mod+$modifier+$toggleFloat floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+$toggleFloat focus mode_toggle
+# focus the parent container
+bindsym $mod+$altModifier+$focusUp focus parent
+# focus the child container
+bindsym $mod+$altModifier+$focusDown focus child
+
+#change border styles
+bindsym $mod+$borderNormal border normal
+bindsym $mod+$borderPixel border 1pixel
+bindsym $mod+$borderNone border none
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+$moveNext workspace next
+bindsym $mod+$movePrevious workspace prev
+
+# move focused container to workspace
+bindsym $mod+$modifier+1 move workspace 1
+bindsym $mod+$modifier+2 move workspace 2
+bindsym $mod+$modifier+3 move workspace 3
+bindsym $mod+$modifier+4 move workspace 4
+bindsym $mod+$modifier+5 move workspace 5
+bindsym $mod+$modifier+6 move workspace 6
+bindsym $mod+$modifier+7 move workspace 7
+bindsym $mod+$modifier+8 move workspace 8
+bindsym $mod+$modifier+9 move workspace 9
+bindsym $mod+$modifier+0 move workspace 10
+bindsym $mod+$modifier+$moveNext move workspace next; workspace next
+bindsym $mod+$modifier+$movePrevious move workspace prev; workspace prev
+
+# reload the configuration file
+bindsym $mod+$i3Modifier+$i3Reload reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+$i3Modifier+$i3Restart restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+$i3Modifier+$i3Exit exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+
+        bindsym $focusLeft                   resize grow left 10 px or 10 ppt
+        bindsym $resizeModifier+$focusLeft   resize shrink   left 10 px or 10 ppt
+
+        bindsym $focusDown                   resize grow down 10 px or 10 ppt
+        bindsym $resizeModifier+$focusDown   resize shrink   down 10 px or 10 ppt
+
+        bindsym $focusUp                     resize grow up 10 px or 10 ppt
+        bindsym $resizeModifier+$focusUp     resize shrink   up 10 px or 10 ppt
+
+        bindsym $focusRight                  resize grow right 10 px or 10 ppt
+        bindsym $resizeModifier+$focusRight  resize shrink   right 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+$resizeKey mode "resize"
+
+# colors
+client.focused          $color_focused_border   $color_focused_background   $color_focused_text
+client.focused_inactive $color_unfocused_border $color_unfocused_background $color_unfocused_text
+client.unfocused        $color_unfocused_border $color_unfocused_background $color_unfocused_text
+client.urgent           $color_urgent_border    $color_urgent_background    $color_urgent_text
+
+
+
+# bar {
+#    #status_command i3status
+#    status_command i3status --config $barConfigFile
+#    position $barPosition
+#    mode $barMode
+#    # font -xos4-terminus-medium-r-normal--12-120-72-72-C-60-iso8859-1
+#    workspace_buttons yes
+#    colors  {
+#            background         $color_topBar_background
+#            statusline         $color_topBar_text
+#                               BORDER                BACKGROUND                     TEXT
+#            focused_workspace  $color_focused_text   $color_focused_background
+#            inactive_workspace $color_unfocused_text $color_unfocused_background
+#            active_workspace   $color_unfocused_text $color_unfocused_background
+#            urgent_workspace   $color_urgent_text    $color_urgent_background
+#      }
+#}
+
+bar {
+#   verbose yes
+    status_command i3blocks
+#    status_command i3status --config $barConfigFile
+#   i3bar_command i3bar -t
+    position top
+    mode $barMode
+    font $barFont
+    strip_workspace_numbers yes
+    separator_symbol "|"
+#   bindsym button4 nop
+#   bindsym button5 nop
+#   tray_output eDP1
+#   tray_output LVDS-0
+    tray_padding 2
+    colors {
+        statusline         $color_topBar_text
+        background         $color_topBar_background
+        separator          $color_topBar_text
+
+#                          BORDER       BACKGROUND   TEXT
+        focused_workspace  $color_topBar_background $color_topBar_background $color_focused_text
+        inactive_workspace $color_topBar_background $color_topBar_background $color_unfocused_text
+        active_workspace   $color_topBar_background $color_topBar_background $color_unfocused_text
+        urgent_workspace   $color_urgent_background $color_urgent_background $color_topBar_background
+        binding_mode       $color_urgent_background $color_urgent_background $color_topBar_background
+    }
+}
+
+
+########################################
+########     EXCEPTIONS         ########
+########################################
+
+# fix graphics glitch
+new_window pixel 1
+
+
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+
+for_window [instance="__scratchpad"] floating enable
+for_window [instance="__nmtui"] floating enable
+
+for_window [class="(?i)pavucontrol"] floating enable, move position mouse
+for_window [class="(?i)pavucontrol" instance="pavucontrol-bar"] move down 34px
+
+for_window [window_role="gimp-toolbox"] floating disable
+for_window [window_role="gimp-dock"] floating disable
+for_window [window_role="gimp-toolbox"] border 1pixel
+for_window [window_role="gimp-dock"] border 1pixel
+for_window [window_role="gimp-image-window"] focus
+for_window [window_role="gimp-image-window"] move right
+for_window [title=".*? VirtualBox"] border 1pixel
+for_window [class=".*?terminal"] border 1pixel
+
+for_window [title="Web Inspector.*?"] floating enable
+for_window [title="Add Downloads*?"] floating enable
+for_window [title="Firebug .*?"] floating enable
+for_window [title="DownThemAll! - Make Your Selection"] floating enable
+for_window [title="Telegram"] floating enable border 1pixel
+for_window [title=".*?Keep.*?"] floating enable border 1pixel
+for_window [class="Skype"] floating enable border 1pixel
+for_window [class="Cerebro"] floating enable border 1pixel

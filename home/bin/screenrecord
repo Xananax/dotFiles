@@ -1,0 +1,5 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+# Records an mkv of your screen in your $HOME (with sound)
+NOW=$(date +"%Y-%m-%d-%H-%M")
+ffmpeg -y -f alsa -ac 2 -i pulse -f x11grab -r 25 -s 1366x768 -i :0.0 -vcodec libx264 -vpre lossless_ultrafast -crf 22 -acodec libmp3lame -ar 44100 -ab 126k -threads 3 ~/"screencast-$NOW.mkv"

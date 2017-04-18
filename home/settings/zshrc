@@ -1,0 +1,75 @@
+# vi:syntax=sh
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+#if [[ -r /usr/share/zsh/site-contrib/powerline.zsh ]]; then
+#	. /usr/share/zsh/site-contrib/powerline.zsh
+#fi
+
+#eval $(dircolors ~/.dircolors)
+
+# Say how long a command took, if it took more than 30 seconds
+export REPORTTIME=30
+
+# Zsh spelling correction options
+setopt CORRECT
+setopt DVORAK
+
+#reduces mode switching
+export KEYTIMEOUT=1
+
+setopt completeinword
+setopt extendedglob
+unsetopt caseglob
+setopt auto_cd
+
+# Prompts for confirmation after 'rm *' etc
+# Helps avoid mistakes like 'rm * o' when 'rm *.o' was intended
+setopt RM_STAR_WAIT
+
+# Don’t write over existing files with >, use >! instead
+setopt NOCLOBBER
+
+# Quick find
+autoload zmv
+
+# key bindings
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[4~" end-of-line
+bindkey "\e[5~" beginning-of-history
+bindkey "\e[6~" end-of-history
+bindkey "\e[3~" delete-char
+bindkey "\e[2~" quoted-insert
+bindkey "\e[5C" forward-word
+bindkey "\eOc" emacs-forward-word
+bindkey "\e[5D" backward-word
+bindkey "\eOd" emacs-backward-word
+bindkey "\ee[C" forward-word
+bindkey "\ee[D" backward-word
+bindkey "^H" backward-delete-word
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+
+# Source aliases
+if [ -f $HOME/.aliases ]; then
+    source $HOME/.aliases
+fi
+
+# Source paths
+if [ -f $HOME/.paths ]; then
+    source $HOME/.paths
+fi
+
+# Source exports
+if [ -f $HOME/.exports ]; then
+    source $HOME/.exports
+fi
+
+
+# Source functions
+if [ -f $HOME/.functions ]; then
+    source $HOME/.functions
+fi

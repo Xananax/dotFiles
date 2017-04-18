@@ -1,0 +1,8 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+
+for FILE in "$@"; do
+	FILENAME="${FILE##*/}"
+	DIRECTORY=$(dirname "${FILE}")
+	echo "$FILENAME" >> "$DIRECTORY"/.hidden
+done;

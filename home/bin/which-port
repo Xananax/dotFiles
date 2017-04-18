@@ -1,0 +1,9 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+
+if [ $# -eq 0  ]; then
+	netstat -tulpn
+else
+	netstat -tulpn | grep "$@"
+fi
+

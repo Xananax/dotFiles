@@ -1,0 +1,21 @@
+# vi:syntax=sh
+export NODE_ENV='development'
+export EDITOR='vim'
+export VISUAL='vim'
+export BROWSER='chromium'
+export TERMINAL='xfce4-terminal'
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export no_proxy='localhost,127.0.0.1,localaddress,.localdomain.com'
+export NO_PROXY='localhost,127.0.0.1,localaddress,.localdomain.com'
+export PROXY='root@yeloworks.com'
+export SYSTEMD_EDITOR='vim'
+export TERM=xterm-256color
+export MAGICK_TMPDIR=~/.tmp/
+export NPM_CONFIG_PREFIX="$HOME/.npm-packages/"
+export XDG_CONFIG_HOME="$HOME/.config"
+export WINEPREFIX=$HOME/.win32/
+export WINEARCH=win32
+
+if [ -f $HOME/.config/env-exports.local ]; then
+    source $HOME/.config/env-exports.local
+fi

@@ -1,0 +1,1 @@
+wacom-set --device-regex="Wacom*" --screen="LVDS-0"

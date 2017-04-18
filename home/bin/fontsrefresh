@@ -1,0 +1,7 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+# refreshes fonts
+
+fc-cache -f -v
+mkfontscale /usr/share/fonts/TTF
+mkfontdir /usr/share/fonts/TTF

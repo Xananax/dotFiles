@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# config
+output="LVDS1"
+OPERATION="${1:-rotate}"
+WACOM=`xsetwacom --list devices`
+
+# get current rotation
+current=`xrandr -q --verbose|grep LVDS1|grep -oP "\)\s(.*)\s\("|grep -oP "normal|left|inverted|right"`
+case $current in
+  normal)    geom=0;;
+  left)      geom=1;;
+  inverted)  geom=2;;
+  right)     geom=3;;
+esac
+
+if [ "$OPERATION" == "flip" ] || [ "$OPERATION" == "rotate" ] || [ "$OPERATION" == "switch" ];
+then
+
+
+  # based on current rotation set new rotation
+  if [ "$OPERATION" == "flip" ]; then
+    # flip
+    if [ "$geom" == "0" ];
+    then
+          wacom=cw
+          xrandr=right
+    else
+          wacom=none
+          xrandr=normal
+    fi
+
+  else
+    
+    if [ "$OPERATION" == "switch" ]; then
+      case $geom in
+        0)  wacom=cw; xrandr=right;;
+        3)  wacom=none; xrandr=normal;;
+        2)  wacom=cw; xrandr=right;;
+        1)  wacom=none; xrandr=normal;;
+      esac
+    else
+      case $geom in
+        0)  wacom=cw; xrandr=right;;
+        3)  wacom=half; xrandr=inverted;;
+        2)  wacom=ccw; xrandr=left;;
+        1)  wacom=none; xrandr=normal;;
+      esac
+    fi
+  fi
+
+
+
+  #echo "xrandr to $xrandr, xsetwacom to $wacom" >&2
+
+  # rotate display
+  xrandr -o $xrandr
+
+  # rotate wacom
+  if [ "$WACOM" ]; then
+    xsetwacom set "13" Rotate $wacom
+    xsetwacom set "14" Rotate $wacom
+    xsetwacom set "15" Rotate $wacom
+  fi
+
+else
+
+  echo "possible parameters: flip, rotate, switch"
+ 
+fi

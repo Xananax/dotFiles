@@ -1,0 +1,23 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+
+shopt -s nullglob
+for z in *.{zip,rar};
+do
+	dir=$(basename "$z")
+	ext="${dir##*.}"
+	dir="${dir%.*}"
+	trash='./_trash'
+	if [ ! -d "$trash" ]; then
+		mkdir $trash
+	fi
+	if [ ! -d "$dir" ]; then
+		case $ext in
+			zip) mkdir "$dir" && unzip -d "./$dir/" "./$z" && mv "$z" "$trash";;
+			rar) mkdir "$dir" && unrar e "./$z" "./$dir/"  && mv "$z" "$trash";;
+			'') echo "cant unzip $z";;
+		esac
+	else
+		echo "directory $dir exists, not replacing"
+	fi;
+done;

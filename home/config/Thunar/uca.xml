@@ -1,0 +1,65 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>Terminal</icon>
+	<name>Terminal</name>
+	<unique-id>1367866030392833-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>stock_folder</icon>
+	<name>Thunar Root</name>
+	<unique-id>1367866030392883-2</unique-id>
+	<command>pkexec thunar %f</command>
+	<description>Thunar Root</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>system-search</icon>
+	<name>Search</name>
+	<unique-id>1367866030392913-3</unique-id>
+	<command>catfish %f</command>
+	<description>find files and folders</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>hide</name>
+	<unique-id>1448476489982202-3</unique-id>
+	<command>~/.bin/hide %F</command>
+	<description>hides files</description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>unhide</name>
+	<unique-id>1448476493744699-4</unique-id>
+	<command>~/.bin/unhide %F</command>
+	<description>unhides files</description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>/home/xananax/Godot/icon.png</icon>
+	<name>Edit in godot</name>
+	<unique-id>1477555716027285-2</unique-id>
+	<command>/home/xananax/Godot/Godot_v2.1-stable_x11.64 -e</command>
+	<description></description>
+	<patterns>engine.cfg</patterns>
+	<text-files/>
+</action>
+</actions>

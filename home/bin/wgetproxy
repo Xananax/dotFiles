@@ -1,0 +1,11 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+
+if [ -z "$1" ]
+ 	then
+		echo "download through a proxy"
+		exit 1
+fi
+url=$1
+filename=${url##*/}
+ssh $PROXY 'wget -O - $url' >> $filename
