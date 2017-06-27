@@ -25,7 +25,13 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias rofirun='rofi -show drun -modi window,drun,run,calc:$HOME/.local/rofi/calc.sh'
 
+# Plain text commands for things I don't remember
+alias directory-size='du -sh -- *'
+alias directory-size-with-hidden-files='du -sh -- * .*'
+alias directory-size-sorted='du -sh -- * | sort -hr'
+alias free-disk-space='df -h'
 
+# Aliases that exist only if the needed software exists
 if hash notify-send 2>/dev/null;then
 	alias say='notify-send'
 fi
@@ -63,6 +69,7 @@ if [[ -f "/etc/arch-release" || -f "/etc/manjaro-release" ]]; then
     alias pac='sudo pacsrv -Syu'
 fi
 
+# Source local file if exists
 if [ -f $HOME/.config/env-aliases.local ]; then
     source $HOME/.config/env-aliases.local
 fi
