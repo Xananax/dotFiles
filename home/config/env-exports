@@ -4,7 +4,7 @@ export EDITOR='vim'
 export VISUAL='vim'
 export BROWSER='chromium'
 export TERMINAL='xfce4-terminal'
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.dpiaware=false'
 export no_proxy='localhost,127.0.0.1,localaddress,.localdomain.com'
 export NO_PROXY='localhost,127.0.0.1,localaddress,.localdomain.com'
 export PROXY='root@yeloworks.com'
@@ -19,3 +19,15 @@ export WINEARCH=win32
 if [ -f $HOME/.config/env-exports.local ]; then
     source $HOME/.config/env-exports.local
 fi
+
+
+#java font fix
+# export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
+#all options
+# yoff, false, default  No anti-aliasing
+# on    Full anti-aliasing
+# gasp  Use the font's built-in hinting instructions
+# lcd, lcd_hrgb Anti-aliasing tuned for many popular LCD monitors
+# lcd_hbgr, lcd_vrgb, lcd_vbgr  Alternative LCD monitor setting
+#To optionally to use GTK look and feel, add the following line NSTEAD
+#_JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
