@@ -410,6 +410,6 @@ for_window [title="Add Downloads*?"] floating enable
 for_window [title="Firebug .*?"] floating enable
 for_window [title="DownThemAll! - Make Your Selection"] floating enable
 for_window [title="Telegram"] floating enable border 1pixel
-for_window [title=".*?Keep.*?"] floating enable border 1pixel
+#for_window [title=".*?Keep.*?"] floating enable border 1pixel
 for_window [class="Skype"] floating enable border 1pixel
 for_window [class="Cerebro"] floating enable border 1pixel
