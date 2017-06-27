@@ -30,6 +30,7 @@ alias directory-size='du -sh -- *'
 alias directory-size-with-hidden-files='du -sh -- * .*'
 alias directory-size-sorted='du -sh -- * | sort -hr'
 alias free-disk-space='df -h'
+alias unpack-tar-gz-files='tar -xzvf'
 
 # Aliases that exist only if the needed software exists
 if hash notify-send 2>/dev/null;then
