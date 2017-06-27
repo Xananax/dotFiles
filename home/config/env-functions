@@ -25,6 +25,16 @@ transfer() {
 	rm -f $tmpfile;
 } 
 
+getProcessPid(){
+  ps axf | grep $1 | grep -v grep
+}
+
+
+# fetches Pull Requests from remote
+# then switch to the pr with `git checkout pr/N` where `N` is the PR number
+function pullify() {
+  git config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*'
+}
 
 if [ -f ~/.config/env-functions.local ]; then
     source ~/.config/env-functions.local
