@@ -157,9 +157,8 @@ exec --no-startup-id nm-applet
 #exec gnome-settings-daemon
 # clipboard manager
 exec --no-startup-id xfce4-clipman
-# launcher
-exec --no-startup-id cerebro
-
+# launch cerebro if present
+exec --no-startup-id command -v cerebro >/dev/null 2>&1
 #horizontal scroll touchpad
 #xinput --set-prop 12 "Synaptics Two-Finger Scrolling" 1 1
 
@@ -169,6 +168,9 @@ exec --no-startup-id thunar --daemon
 # exec dropbox start
 #exec pamac-tray
 
+# remove beep
+exec --no-startup-id xset b off
+exec --no-startup-id xset b 0 0 0
 
 ########################################
 ########      STYLES            ########
@@ -205,7 +207,7 @@ font $barFont
 ########################################
 
 bindsym Print exec xfce4-screenshooter
-bindsym $mod+p exec /home/xananax/.bin/printscrn
+bindsym $mod+p exec printscreen
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -216,7 +218,7 @@ bindsym $mod+$fileManagerKey exec thunar
 bindsym $mod+$killKey kill
 bindsym $mod+$forceKillKey exec xkill
 bindsym $mod+$fileLauncherKey exec i3-dmenu-desktop
-# bindsym $mod+$launcherKey exec ~/.config/rofi/rofi-run 
+bindsym $mod+$launcherKey exec ~/.config/rofi/rofi-run
 # change focus
 bindsym $mod+$focusLeft focus left
 bindsym $mod+$focusDown focus down
