@@ -195,7 +195,7 @@ set $color_launcher_text #ffffff
 #set $mainFont font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 # font for bar
-set $barFont pango:Hack, FontAwesome 16
+set $barFont pango:Hack, FontAwesome 10
 
 # set the main font
 set $mainFont $barFont
