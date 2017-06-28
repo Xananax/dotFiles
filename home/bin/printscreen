@@ -1,0 +1,6 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+# prints screen and saves 
+
+now=`date +"%m_%d_%Y"`
+import -window root $HOME/$now.png
