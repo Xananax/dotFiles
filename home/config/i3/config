@@ -158,7 +158,7 @@ exec --no-startup-id nm-applet
 # clipboard manager
 exec --no-startup-id xfce4-clipman
 # launch cerebro if present
-exec --no-startup-id command -v cerebro >/dev/null 2>&1
+exec --no-startup-id command -v cerebro >/dev/null 2>&1 && cerebro
 #horizontal scroll touchpad
 #xinput --set-prop 12 "Synaptics Two-Finger Scrolling" 1 1
 
