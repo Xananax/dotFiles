@@ -218,7 +218,7 @@ bindsym $mod+$fileManagerKey exec thunar
 bindsym $mod+$killKey kill
 bindsym $mod+$forceKillKey exec xkill
 bindsym $mod+$fileLauncherKey exec i3-dmenu-desktop
-bindsym $mod+$launcherKey exec ~/.config/rofi/rofi-run
+# bindsym $mod+$launcherKey exec command ~/.config/rofi/rofi-run
 # change focus
 bindsym $mod+$focusLeft focus left
 bindsym $mod+$focusDown focus down
