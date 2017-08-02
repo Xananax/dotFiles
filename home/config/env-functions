@@ -30,6 +30,12 @@ getProcessPid(){
 }
 
 
+if hash pacman 2>/dev/null; then
+    pacman-remove-dependents(){
+      sudo pacman -Qq | grep "$0" | sudo pacman -Rs -
+    }
+fi;
+
 # fetches Pull Requests from remote
 # then switch to the pr with `git checkout pr/N` where `N` is the PR number
 function pullify() {
