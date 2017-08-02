@@ -55,6 +55,22 @@ if hash docker 2>/dev/null; then
 	alias docker-remove-containers='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 fi
 
+if hash maim 2>/dev/null; then
+    if hash xclip 2>/dev/null; then
+        alias screenshot-clipboad='maim -s | xclip -selection clipboard -t image/png'
+    fi
+    if hash convert 2>/dev/null; then
+        alias color-picker='maim -st 1 | convert - -resize 1x1\! -format "%[pixel:p{0,0}]" info:-'
+    fi
+    if hash imgur 2>/dev/null; then
+        alias screenshot-upload='maim -s /tmp/screenshot.png; imgur /tmp/screenshot.png'
+    fi
+    if hash xdotool 2>/dev/null; then
+        alias screenshot-save-current-window='maim -i $(xdotool getactivewindow) ~/screenshot-$(date +%s).png'
+    fi
+    alias screenshot-save='maim ~/screenshot-$(date +%s).png'
+fi
+
 # only for Arch distributions
 if [[ -f "/etc/arch-release" || -f "/etc/manjaro-release" ]]; then
 	# check mirrors and write them
