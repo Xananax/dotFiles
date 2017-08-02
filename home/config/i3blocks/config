@@ -69,7 +69,7 @@ interval=30
 # (defaults to 10 for 10%).
 [disk]
 label=H
-#instance=/mnt/data
+instance=/
 interval=30
 
 # Network interface monitoring
