@@ -1,0 +1,3 @@
+[submodule "home/config/blender/2.78/additive_keyer"]
+	path = home/config/blender/2.78/additive_keyer
+	url = https://github.com/artellblender/additive_keyer.git
