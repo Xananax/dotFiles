@@ -101,7 +101,7 @@ set $launcherKey q
 set $i3Reload c
 set $i3Restart r
 set $i3Exit e
-
+set $i3Lock l
 
 ########################################
 ########   OTHER SETTINGS      ########
@@ -299,6 +299,8 @@ bindsym $mod+$i3Modifier+$i3Reload reload
 bindsym $mod+$i3Modifier+$i3Restart restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+$i3Modifier+$i3Exit exit
+# locks screen
+bindsym $mod+$i3Modifier+$i3Lock exec --no-startup-id i3lock -c 000000
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
