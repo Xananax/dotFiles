@@ -50,6 +50,12 @@ if hash tmux 2>/dev/null; then
 	alias tmux='tmux -2'
 fi
 
+if hash cum 2>/dev/null; then
+    batoto(){
+        cum follow "http://bato.to/comic/_/comics/$1"
+    }
+fi
+
 if hash docker 2>/dev/null; then
 	alias docker-show-containers='docker stop $(docker ps -a -q)'
 	alias docker-remove-containers='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
