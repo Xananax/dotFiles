@@ -92,7 +92,7 @@ set $forceKillKey x
 set $consoleKey Return
 set $fileManagerKey f
 set $fileLauncherKey d
-set $launcherKey q
+set $launcherKey p
 
 
 ########################################
@@ -207,7 +207,7 @@ font $barFont
 ########################################
 
 bindsym Print exec xfce4-screenshooter
-bindsym $mod+p exec printscreen
+# bindsym $mod+p exec printscreen
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -218,7 +218,7 @@ bindsym $mod+$fileManagerKey exec thunar
 bindsym $mod+$killKey kill
 bindsym $mod+$forceKillKey exec xkill
 bindsym $mod+$fileLauncherKey exec i3-dmenu-desktop
-# bindsym $mod+$launcherKey exec command ~/.config/rofi/rofi-run
+bindsym $mod+$launcherKey exec command ~/.config/rofi/rofi-run
 # change focus
 bindsym $mod+$focusLeft focus left
 bindsym $mod+$focusDown focus down
