@@ -15,10 +15,11 @@ then
 fi
 
 alias j='jobs -l'
-alias grep='grep --colour'
 alias mutt='TERM=xterm-256color mutt'
-alias grep='/usr/bin/grep $GREP_OPTIONS'
-unset GREP_OPTIONS
+# alias grep='grep --colour'
+# alias grep='/usr/bin/grep $GREP_OPTIONS'
+# unset GREP_OPTIONS
+alias grep='grep --colour=always --recursive --dereference-recursive --ignore-case --line-number --line-buffered --with-filename --binary-files=without-match'
 alias sudo='sudo'
 alias cp='cp -i'                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
