@@ -12,7 +12,7 @@ for dir in \
 	$HOME/.meteor \
     	$NPM_PACKAGES/bin \
 ; do
-  if [[ -d $dir ]]; then path+=$dir; fi
+  if [[ -d $dir ]]; then PATH+=":$dir"; fi
 done
 
 export CLASSPATH=".:~/.opt/antlr-4.4-complete.jar:$CLASSPATH"
