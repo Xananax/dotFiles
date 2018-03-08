@@ -46,3 +46,8 @@ fi
 if [ -f $HOME/.xsh ]; then
     source $HOME/.xsh
 fi
+
+if hash fish 2>/dev/null; then
+    fish
+fi
+
