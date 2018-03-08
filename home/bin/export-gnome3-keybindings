@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# vi:syntax=sh
+
+gsettings list-recursively org.gnome.desktop.wm.keybindings | awk '$0="gsettings set "$0' > ${1:-keybindings}
