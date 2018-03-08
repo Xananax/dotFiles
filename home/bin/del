@@ -1,5 +1,5 @@
-# vi:syntax=sh
 #!/usr/bin/env bash
+# vi:syntax=sh
 # replaces rm with an undoable command
 
 usage(){

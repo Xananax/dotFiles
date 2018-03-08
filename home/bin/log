@@ -1,5 +1,5 @@
-# vi:syntax=sh
 #!/usr/bin/env bash
+# vi:syntax=sh
 # Logs anything to files
 
 usage(){

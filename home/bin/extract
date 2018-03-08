@@ -1,5 +1,5 @@
-# vi:syntax=sh
 #!/usr/bin/env bash
+# vi:syntax=sh
 # universal extractor of compressed files
 
 extract () {

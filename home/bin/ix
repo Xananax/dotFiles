@@ -1,5 +1,5 @@
-# vi:syntax=sh
 #!/usr/bin/env bash
+# vi:syntax=sh
 
 # Examples:
 #     ix hello.txt              # paste file (name/ext will be set).

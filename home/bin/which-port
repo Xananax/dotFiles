@@ -1,5 +1,5 @@
-# vi:syntax=sh
 #!/usr/bin/env bash
+# vi:syntax=sh
 
 if [ $# -eq 0  ]; then
 	netstat -tulpn

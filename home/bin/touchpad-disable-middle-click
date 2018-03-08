@@ -1,1 +1,3 @@
+#!/bin/bash
+
 synclient TapButton2=0

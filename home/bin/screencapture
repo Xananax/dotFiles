@@ -1,4 +1,4 @@
-# vi:syntax=sh
 #!/usr/bin/env bash
+# vi:syntax=sh
 # Captures Screen image to a png in your $HOME
 import -window root ~/screen-`date +%Y%m%d%H%M%S`.png

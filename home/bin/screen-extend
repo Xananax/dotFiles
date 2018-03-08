@@ -1,1 +1,3 @@
+#!/bin/bash
+
 xrandr --output $@ --auto --output eDP1 --auto --right-of $@

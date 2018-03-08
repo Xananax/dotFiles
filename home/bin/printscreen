@@ -1,5 +1,5 @@
-# vi:syntax=sh
 #!/usr/bin/env bash
+# vi:syntax=sh
 # prints screen and saves 
 
 now=`date +"%m_%d_%Y"`

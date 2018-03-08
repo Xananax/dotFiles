@@ -1,5 +1,5 @@
-# vi:syntax=sh
 #!/usr/bin/env bash
+# vi:syntax=sh
 
 ssh -C2qTnN -D 9090 $PROXY
 #export SOCKS_SERVER=127.0.0.1:9090
