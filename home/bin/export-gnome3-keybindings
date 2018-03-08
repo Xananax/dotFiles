@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 # vi:syntax=sh
 # Thanks: http://dan.bodar.com/2012/10/23/gnome-3-gsettings-sucks-exportimporting-your-keyboard-shortcuts/
-gsettings list-recursively org.gnome.desktop.wm.keybindings | awk '$0="gsettings set "$0' > ${1:-keybindings}
+
+FILE=${1:-gnome3-keybindings}
+gsettings list-recursively org.gnome.desktop.wm.keybindings | awk '$0="gsettings set "$0' | awk '!/\[\]/' > $FILE
+chmod +x $FILE
