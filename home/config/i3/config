@@ -15,16 +15,13 @@ set $i3Modifier Control
 ########################################
 ########         NAVIGATION     ########
 ########################################
-# nmode: focus different windows
-# nmode+$modifier: move windows
-# rMode: resize windows.
-# rMode+$resizeModifier: resize in inverse direction
+# Moving focus from window to window
 set $focusLeft h
 set $focusDown j
 set $focusRight l
 set $focusUp k
-set $focusNext n
-set $focusPrevious m
+set $focusNext b
+set $focusPrevious n
 set $focusUrgent grave
 # these move between workspaces
 set $movePrevious Left
@@ -84,6 +81,7 @@ set $borderNormal o
 ########################################
 set $killKey Shift+q
 set $resizeKey Shift+r
+set $moveKey Shift+m
 set $forceKillKey x
 
 ########################################
@@ -318,10 +316,24 @@ mode "resize" {
         bindsym $resizeModifier+$focusRight  resize shrink   right 10 px or 10 ppt
 
         # back to normal: Enter or Escape
+        bindsym $mod+$resizeKey mode "default"
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 bindsym $mod+$resizeKey mode "resize"
+
+# move windows around
+mode "moveit" {
+    bindsym Up move up 20px
+    bindsym Left move left 20px
+    bindsym Down move down 20px
+    bindsym Right move right 20px
+
+    bindsym $mod+$moveKey mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+$moveKey mode "moveit"
 
 # colors
 client.focused          $color_focused_border   $color_focused_background   $color_focused_text
