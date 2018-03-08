@@ -1,5 +1,5 @@
-
-
+# vi:syntax=sh
+#!/usr/bin/env bash
 #
 # User configuration sourced by interactive shells
 #
@@ -10,7 +10,7 @@ if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
 fi
 
 if command -v tmux>/dev/null; then
-#  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
 fi
 
 
@@ -48,6 +48,6 @@ if [ -f $HOME/.xsh ]; then
 fi
 
 if hash fish 2>/dev/null; then
-    fish
+    exec fish
 fi
 
