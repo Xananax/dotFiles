@@ -166,6 +166,9 @@ exec --no-startup-id thunar --daemon
 # exec dropbox start
 #exec pamac-tray
 
+# screenshotter
+exec --no-startup-id flameshot
+
 # remove beep
 exec --no-startup-id xset b off
 exec --no-startup-id xset b 0 0 0
@@ -204,7 +207,9 @@ font $barFont
 ########     DONT TOUCH BELOW   ########
 ########################################
 
-bindsym Print exec xfce4-screenshooter
+
+bindsym Print exec flameshot gui 
+# bindsym Print exec xfce4-screenshooter
 # bindsym $mod+p exec printscreen
 
 # use Mouse+$mod to drag floating windows to their wanted position
