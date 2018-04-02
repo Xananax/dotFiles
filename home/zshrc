@@ -32,6 +32,6 @@ if [ -f $HOME/.xsh ]; then
 fi
 
 if hash fish 2>/dev/null; then
-    # exec fish
+   exec fish
 fi
 

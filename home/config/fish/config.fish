@@ -5,7 +5,6 @@ set -gx NODE_PATH $NPM_PACKAGES/lib/node_modules:$NODE_PATH /home/xananax/packag
 set -gx SYSTEMD_EDITOR vim
 set -gx TERMINAL xfce4\x2dterminal
 set -gx VISUAL vim
-set -gx XDG_CONFIG_HOME /home/xananax
 set -gx fish_user_paths $PATH $HOME/.local/bin \
 	$HOME/.bin \
 	$NPM_PACKAGES/bin
