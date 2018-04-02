@@ -1,0 +1,27 @@
+# vi:syntax=sh
+#!/usr/bin/env bash
+#
+# User configuration sourced by interactive shells
+#
+
+# XDG_CONFIG_HOME="$HOME/.config"
+
+# Source aliases
+if [ -f $XDG_CONFIG_HOME/env-aliases ]; then
+    source $XDG_CONFIG_HOME/env-aliases
+fi
+
+# Source paths
+if [ -f $XDG_CONFIG_HOME/env-paths ]; then
+    source $XDG_CONFIG_HOME/env-paths
+fi
+
+# Source exports
+if [ -f $XDG_CONFIG_HOME/env-exports ]; then
+    source $XDG_CONFIG_HOME/env-exports
+fi
+
+# Source functions
+if [ -f $XDG_CONFIG_HOME/env-functions ]; then
+    source $XDG_CONFIG_HOME/env-functions
+fi

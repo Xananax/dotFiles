@@ -14,27 +14,11 @@ if command -v tmux>/dev/null; then
 fi
 
 
-XDG_CONFIG_HOME="$HOME/.config"
+# XDG_CONFIG_HOME="$HOME/.config"
 
-# Source aliases
-if [ -f $XDG_CONFIG_HOME/env-aliases ]; then
-    source $XDG_CONFIG_HOME/env-aliases
-fi
-
-# Source paths
-if [ -f $XDG_CONFIG_HOME/env-paths ]; then
-    source $XDG_CONFIG_HOME/env-paths
-fi
-
-# Source exports
-if [ -f $XDG_CONFIG_HOME/env-exports ]; then
-    source $XDG_CONFIG_HOME/env-exports
-fi
-
-
-# Source functions
-if [ -f $XDG_CONFIG_HOME/env-functions ]; then
-    source $XDG_CONFIG_HOME/env-functions
+# Source global config
+if [ -f $XDG_CONFIG_HOME/env ]; then
+    source $XDG_CONFIG_HOME/env
 fi
 
 # Source nvm
@@ -48,6 +32,6 @@ if [ -f $HOME/.xsh ]; then
 fi
 
 if hash fish 2>/dev/null; then
-    exec fish
+    # exec fish
 fi
 

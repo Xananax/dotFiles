@@ -14,6 +14,7 @@ then
     fi
 fi
 
+alias ls='ls --color=auto'
 alias j='jobs -l'
 alias mutt='TERM=xterm-256color mutt'
 # alias grep='grep --colour'
