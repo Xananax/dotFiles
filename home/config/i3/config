@@ -82,6 +82,7 @@ set $borderNormal o
 set $killKey Shift+q
 set $resizeKey Shift+r
 set $moveKey Shift+m
+set $displayKey m
 set $forceKillKey x
 
 ########################################
@@ -339,6 +340,20 @@ mode "moveit" {
     bindsym Escape mode "default"
 }
 bindsym $mod+$moveKey mode "moveit"
+
+# switch screens
+set $mode_display Ext Screen (h) HDMI ON, (m) HDMI MIRROR, (y) HDMI OFF
+mode "$mode_display" {
+    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --right-of eDP1, mode "default"
+    bindsym y exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
+    bindsym m exec --no-startup-id xrandr --output HDMI1 --same-as eDP1 --auto, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+# Declare here the shortcut to bring the display selection menu
+bindsym $mod+$displayKey mode "$mode_display"
 
 # colors
 client.focused          $color_focused_border   $color_focused_background   $color_focused_text
