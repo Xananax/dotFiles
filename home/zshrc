@@ -4,17 +4,21 @@
 # User configuration sourced by interactive shells
 #
 
+# check if running in a term emulator
+IS_VIRTUAL_TERM=$(xhost >& /dev/null && echo "1")
+
 # Source zim
 if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
   source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
 fi
 
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+if [[ $DISPLAY ]]; then 
+  if command -v tmux>/dev/null; then
+#    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+  fi
 fi
 
-
-# XDG_CONFIG_HOME="$HOME/.config"
+XDG_CONFIG_HOME="$HOME/.config"
 
 # Source global config
 if [ -f $XDG_CONFIG_HOME/env ]; then
