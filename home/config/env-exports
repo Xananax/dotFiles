@@ -17,7 +17,7 @@ export WINEPREFIX=$HOME/.win32/
 export WINEARCH=win32
 #QT Fix for High DPI
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export QT_SCALE_FACTOR=2
+export QT_SCALE_FACTOR=1.2
 
 
 if [ -f $HOME/.config/env-exports.local ]; then

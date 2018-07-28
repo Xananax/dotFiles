@@ -83,7 +83,6 @@ set $killKey Shift+q
 set $resizeKey Shift+r
 set $moveKey Shift+m
 set $displayKey m
-set $forceKillKey x
 
 ########################################
 ########      APPS KEYS         ########
@@ -168,7 +167,7 @@ exec --no-startup-id thunar --daemon
 #exec pamac-tray
 
 # screenshotter
-exec --no-startup-id flameshot
+exec --no-startup-id QT_SCALE_FACTOR=1 QT_AUTO_SCREEN_SCALE_FACTOR=0 flameshot
 
 # remove beep
 exec --no-startup-id xset b off
@@ -220,7 +219,6 @@ floating_modifier $mod
 bindsym $mod+$consoleKey exec i3-sensible-terminal
 bindsym $mod+$fileManagerKey exec thunar
 bindsym $mod+$killKey kill
-bindsym $mod+$forceKillKey exec xkill
 bindsym $mod+$fileLauncherKey exec i3-dmenu-desktop
 bindsym $mod+$launcherKey exec command ~/.config/rofi/rofi-run
 # change focus
@@ -342,11 +340,14 @@ mode "moveit" {
 bindsym $mod+$moveKey mode "moveit"
 
 # switch screens
-set $mode_display Ext Screen (h) HDMI ON, (m) HDMI MIRROR, (y) HDMI OFF
+bindsym $mod+x move workspace to output right
+set $mode_display Ext Screen (h) HDMI ON, (j) MIRROR FORCED HD, (m) HDMI MIRROR, (n) HDMI MIRROR FORCED HD, (y) HDMI OFF
 mode "$mode_display" {
-    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --right-of eDP1, mode "default"
-    bindsym y exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
-    bindsym m exec --no-startup-id xrandr --output HDMI1 --same-as eDP1 --auto, mode "default"
+    bindsym h exec --no-startup-id xrandr --output eDP1 --auto --primary --output HDMI1 --auto --right-of eDP1, mode "default"
+    bindsym j exec --no-startup-id xrandr --output eDP1 --auto --primary --output HDMI1 --mode 1920x1080 --right-of eDP1, mode "default"
+    bindsym y exec --no-startup-id xrandr --output eDP1 --auto --primary --output HDMI1 --off, mode "default"
+    bindsym m exec --no-startup-id xrandr --output eDP1 --auto --primary --output HDMI1 -- --auto, mode "default"
+    bindsym n exec --no-startup-id xrandr --output eDP1 --auto --primary --output HDMI1 --mode 1920x1080, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
