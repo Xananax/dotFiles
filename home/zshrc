@@ -39,3 +39,7 @@ if hash fish 2>/dev/null; then
    exec fish
 fi
 
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/xananax/pushpin/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/xananax/pushpin/node_modules/tabtab/.completions/electron-forge.zsh
