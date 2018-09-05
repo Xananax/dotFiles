@@ -90,7 +90,7 @@ set $displayKey m
 set $consoleKey Return
 set $fileManagerKey f
 set $fileLauncherKey d
-set $launcherKey p
+set $launcherKey q 	
 
 
 ########################################
@@ -216,7 +216,7 @@ bindsym Print exec flameshot gui
 floating_modifier $mod
 
 # Apps
-bindsym $mod+$consoleKey exec i3-sensible-terminal
+bindsym $mod+$consoleKey exec xfce4-terminal || i3-sensible-terminal
 bindsym $mod+$fileManagerKey exec thunar
 bindsym $mod+$killKey kill
 bindsym $mod+$fileLauncherKey exec i3-dmenu-desktop
