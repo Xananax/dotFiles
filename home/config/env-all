@@ -25,3 +25,13 @@ fi
 if [ -f $XDG_CONFIG_HOME/env-functions ]; then
     source $XDG_CONFIG_HOME/env-functions
 fi
+
+# Source options
+if [ -f $XDG_CONFIG_HOME/env-options ]; then
+    source $XDG_CONFIG_HOME/env-options
+fi
+
+# Source nvm on Arch
+if [ -f /usr/share/nvm/init-nvm.sh ]; then
+    source /usr/share/nvm/init-nvm.sh
+fi

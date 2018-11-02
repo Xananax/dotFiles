@@ -10,6 +10,7 @@ ln -s -r ./home/config/env-paths ~/.config/env-paths
 ln -s -r ./home/config/env-aliases ~/.config/env-aliases
 ln -s -r ./home/config/env-exports ~/.config/env-exports
 ln -s -r ./home/config/env-functions ~/.config/env-functions
+ln -s -r ./home/config/env-all ~/.config/env-all
 ln -s -r ./home/config/bash_functions ~/.config/bash_functions
 # ln -s -r ./home/npmrc ~/.npmrc
 ln -s -r ./home/zshrc ~/.zshrc

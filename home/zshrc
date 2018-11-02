@@ -21,8 +21,8 @@ fi
 XDG_CONFIG_HOME="$HOME/.config"
 
 # Source global config
-if [ -f $XDG_CONFIG_HOME/env ]; then
-    source $XDG_CONFIG_HOME/env
+if [ -f $XDG_CONFIG_HOME/env-all ]; then
+    source $XDG_CONFIG_HOME/env-all
 fi
 
 # Source nvm

@@ -169,10 +169,6 @@ exec --no-startup-id thunar --daemon
 # screenshotter
 exec --no-startup-id QT_SCALE_FACTOR=1 QT_AUTO_SCREEN_SCALE_FACTOR=0 flameshot
 
-# remove beep
-exec --no-startup-id xset b off
-exec --no-startup-id xset b 0 0 0
-
 ########################################
 ########      STYLES            ########
 ########################################
