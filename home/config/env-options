@@ -1,9 +1,11 @@
-# set touchpad to tap to click and disable middle-mouse button emulation with three fingers
-xinput set-button-map 13 1 3 3 && xinput set-prop 13 279 1 
-# set keyboard map
-setxkbmap -layout us -variant altgr-intl -option nodeadkeys
-# remove keyboard beep
-xset b off
-xset b 0 0 0
-
-
+if [[ $DISPLAY ]]; then
+    # set touchpad to tap to click and disable middle-mouse button emulation with three fingers
+    xinput set-button-map 13 1 3 3 && xinput set-prop 13 279 1 
+    # two finger scrolling
+    xinput --set-prop 12 "Synaptics Two-Finger Scrolling" 1 1
+    # set keyboard map
+    setxkbmap -layout us -variant altgr-intl -option nodeadkeys
+    # remove keyboard beep
+    xset b off
+    xset b 0 0 0
+fi;
