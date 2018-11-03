@@ -1,8 +1,8 @@
 # vi:syntax=sh
 
 export GEM_HOME="$HOME/.gem"
-export GEM_PACKAGES="$HOME/.gem/ruby/2.5.0/"
-export GEM_PATH="$GEM_PACKAGES:/usr/lib/ruby/gems/2.5.0/"
+export GEM_PACKAGES="$HOME/.gem/ruby/2.5.0"
+export GEM_PATH="$GEM_PACKAGES:/usr/lib/ruby/gems/2.5.0"
 for dir in \
 	$HOME/bin \
 	$HOME/.local/bin \
