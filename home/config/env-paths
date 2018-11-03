@@ -3,7 +3,6 @@
 export GEM_HOME="$HOME/.gem"
 export GEM_PACKAGES="$HOME/.gem/ruby/2.5.0/"
 export GEM_PATH="$GEM_PACKAGES:/usr/lib/ruby/gems/2.5.0/"
-export NPM_PACKAGES="$HOME/.npm-packages"
 for dir in \
 	$HOME/bin \
 	$HOME/.local/bin \
@@ -12,7 +11,6 @@ for dir in \
 	$HOME/.composer/vendor/bin \
 	$HOME/.meteor \
     $GEM_PACKAGES/bin \
-    $NPM_PACKAGES/bin \
 ; do
   if [[ -d $dir ]]; then PATH+=":$dir"; fi
 done
