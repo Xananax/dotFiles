@@ -4,7 +4,7 @@ export GEM_HOME="$HOME/.gem"
 export GEM_PACKAGES="$HOME/.gem/ruby/2.5.0"
 export GEM_PATH="$GEM_PACKAGES:/usr/lib/ruby/gems/2.5.0"
 export NPM_PACKAGES="$HOME/.npm-packages"
-for dir in \
+for add_dir in \
 	$HOME/bin \
 	$HOME/.local/bin \
 	$HOME/.bin \
@@ -14,7 +14,9 @@ for dir in \
     $GEM_PACKAGES/bin \
     $NPM_PACKAGES/bin \
 ; do
-  if [[ -d $dir ]]; then PATH+=":$dir"; fi
+  if [[ -d $add_dir ]]; then 
+    PATH+=":$add_dir"
+  fi
 done
 
 export CLASSPATH=".:~/.opt/antlr-4.4-complete.jar:$CLASSPATH"
