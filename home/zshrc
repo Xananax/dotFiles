@@ -42,3 +42,8 @@ fi
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /home/xananax/pushpin/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/xananax/pushpin/node_modules/tabtab/.completions/electron-forge.zsh
+
+# automatically start a tmux connection on login
+if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
+    tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+fi
