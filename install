@@ -7,6 +7,7 @@ ln -s -r ./home/config/dunst ~/.config/dunst
 ln -s -r ./home/config/compton.conf ~/.config/compton.conf
 ln -s -r ./home/tmux.conf ~/.tmux.conf
 ln -s -r ./home/config/env-paths ~/.config/env-paths
+ln -s -r ./home/config/env-options ~/.config/env-options
 ln -s -r ./home/config/env-aliases ~/.config/env-aliases
 ln -s -r ./home/config/env-exports ~/.config/env-exports
 ln -s -r ./home/config/env-functions ~/.config/env-functions

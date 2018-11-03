@@ -21,8 +21,8 @@ export CLASSPATH=".:~/.opt/antlr-4.4-complete.jar:$CLASSPATH"
 
 unset MANPATH
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-export HAXE_STD_PATH=/opt/haxe/std
+# export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+# export HAXE_STD_PATH=/opt/haxe/std
 export WINEARCH=win32
 export WINEPREFIX=$HOME/.wine32
 
