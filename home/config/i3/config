@@ -446,3 +446,4 @@ for_window [title="DownThemAll! - Make Your Selection"] floating enable
 # for_window [title=".*?Keep.*?"] floating enable border 1pixel
 # for_window [class="Skype"] floating enable border 1pixel
 for_window [class="Cerebro"] floating enable border 1pixel
+for_window [window_role="Msgcompose" class="(?i)Thunderbird"] floating enable

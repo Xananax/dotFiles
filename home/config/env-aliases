@@ -52,10 +52,8 @@ if hash tmux 2>/dev/null; then
 	alias tmux='tmux -2'
 fi
 
-if hash cum 2>/dev/null; then
-    batoto(){
-        cum follow "http://bato.to/comic/_/comics/$1"
-    }
+if hash rsync 2>/dev/null; then
+    alias sync-directory='rsync --progress -cr'
 fi
 
 if hash docker 2>/dev/null; then
